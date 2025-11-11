@@ -235,6 +235,15 @@
         .collapse-icon.rotate {
             transform: rotate(180deg);
         }
+        
+        /* 政策详情样式 */
+        .policy-detail {
+            display: none;
+        }
+        
+        .policy-detail.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
@@ -447,20 +456,20 @@
                 </div>
                 
                 <!-- 政策详情 -->
-                <div id="policy-details" class="mt-6 hidden">
-                    <div id="rural-revitalization" class="policy-detail hidden p-4 bg-blue-50 rounded-lg">
+                <div id="policy-details" class="mt-6">
+                    <div id="rural-revitalization" class="policy-detail p-4 bg-blue-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">乡村振兴政策详情</h4>
                         <p>乡村振兴战略是习近平同志2017年10月18日在党的十九大报告中提出的战略。十九大报告指出，农业农村农民问题是关系国计民生的根本性问题，必须始终把解决好"三农"问题作为全党工作的重中之重，实施乡村振兴战略。</p>
                     </div>
-                    <div id="soviet-revitalization" class="policy-detail hidden p-4 bg-green-50 rounded-lg">
+                    <div id="soviet-revitalization" class="policy-detail p-4 bg-green-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">苏区振兴政策详情</h4>
                         <p>苏区振兴政策旨在支持原中央苏区经济社会发展，促进革命老区振兴发展。梅州作为原中央苏区的重要组成部分，享受国家特殊政策支持，推动基础设施建设、产业发展和民生改善。</p>
                     </div>
-                    <div id="hundred-thousand-project" class="policy-detail hidden p-4 bg-yellow-50 rounded-lg">
+                    <div id="hundred-thousand-project" class="policy-detail p-4 bg-yellow-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">百千万工程详情</h4>
                         <p>百千万工程是广东省推动高质量发展的重要举措，旨在培育百家龙头企业、千家专精特新企业、万家高新技术企业，构建现代化产业体系，推动经济高质量发展。</p>
                     </div>
-                    <div id="green-meizhou" class="policy-detail hidden p-4 bg-purple-50 rounded-lg">
+                    <div id="green-meizhou" class="policy-detail p-4 bg-purple-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">绿美梅州详情</h4>
                         <p>绿美梅州是梅州市生态文明建设的重要举措，通过实施森林质量精准提升、城乡一体绿美提升、绿美保护地提升、绿色通道品质提升、古树名木保护提升、全民爱绿植绿护绿等六大行动，建设人与自然和谐共生的美丽梅州。</p>
                     </div>
@@ -801,11 +810,11 @@
             </div>
             
             <div class="ip-gallery">
-                <img src="images/nuannuan-1.jpg" alt="暖暖形象1" data-index="0" data-ip="nuannuan">
-                <img src="images/nuannuan-2.jpg" alt="暖暖形象2" data-index="1" data-ip="nuannuan">
-                <img src="images/nuannuan-3.jpg" alt="暖暖形象3" data-index="2" data-ip="nuannuan">
-                <img src="images/nuannuan-4.jpg" alt="暖暖形象4" data-index="3" data-ip="nuannuan">
-                <img src="images/nuannuan-5.jpg" alt="暖暖形象5" data-index="4" data-ip="nuannuan">
+                <img src="images/nuannuan-1.jpg" alt="暖暖形象1" data-index="0" data-ip="nuannuan" onerror="this.src='https://picsum.photos/300/400?people=8'">
+                <img src="images/nuannuan-2.jpg" alt="暖暖形象2" data-index="1" data-ip="nuannuan" onerror="this.src='https://picsum.photos/300/400?people=9'">
+                <img src="images/nuannuan-3.jpg" alt="暖暖形象3" data-index="2" data-ip="nuannuan" onerror="this.src='https://picsum.photos/300/400?people=10'">
+                <img src="images/nuannuan-4.jpg" alt="暖暖形象4" data-index="3" data-ip="nuannuan" onerror="this.src='https://picsum.photos/300/400?people=11'">
+                <img src="images/nuannuan-5.jpg" alt="暖暖形象5" data-index="4" data-ip="nuannuan" onerror="this.src='https://picsum.photos/300/400?people=12'">
             </div>
         </div>
     </div>
@@ -821,8 +830,8 @@
             </div>
             
             <div class="ip-gallery">
-                <img src="images/jiangjiang-1.jpg" alt="姜姜形象1" data-index="0" data-ip="jiangjiang">
-                <img src="images/jiangjiang-2.jpg" alt="姜姜形象2" data-index="1" data-ip="jiangjiang">
+                <img src="images/jiangjiang-1.jpg" alt="姜姜形象1" data-index="0" data-ip="jiangjiang" onerror="this.src='https://picsum.photos/300/400?nature=3'">
+                <img src="images/jiangjiang-2.jpg" alt="姜姜形象2" data-index="1" data-ip="jiangjiang" onerror="this.src='https://picsum.photos/300/400?nature=4'">
             </div>
         </div>
     </div>
@@ -937,14 +946,19 @@
             
             // 政策呼应功能
             const policyItems = document.querySelectorAll('.policy-item');
-            const policyDetails = document.getElementById('policy-details');
+            const policyDetails = document.querySelectorAll('.policy-detail');
+            
+            // 默认隐藏所有政策详情
+            policyDetails.forEach(detail => {
+                detail.classList.add('hidden');
+            });
             
             policyItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const targetId = this.getAttribute('data-target');
                     
                     // 隐藏所有政策详情
-                    document.querySelectorAll('.policy-detail').forEach(detail => {
+                    policyDetails.forEach(detail => {
                         detail.classList.add('hidden');
                     });
                     
@@ -952,7 +966,6 @@
                     const targetDetail = document.getElementById(targetId);
                     if (targetDetail) {
                         targetDetail.classList.remove('hidden');
-                        policyDetails.classList.remove('hidden');
                     }
                 });
             });
@@ -1078,23 +1091,23 @@
             });
             
             // 点击模态框外部关闭
-            window.addEventListener('click'   “点击”, function(event) {
-                if (event.target   目标 === ipImageModal) {
+            window.addEventListener('click'   “点击”, function(event   事件) {
+                if (event   事件.target   目标 === ipImageModal) {
                     ipImageModal.style.display = 'none';
                 }
             });
             
             // 键盘导航
-            document.addEventListener('keydown', function(event) {
-                if (ipImageModal.style   风格.display === 'block') {
-                    if (event.key === 'Escape') {
-                        ipImageModal.style   风格.display = 'none';
-                    } else if (event.key === 'ArrowLeft') {
+            document.addEventListener('keydown'   “keydown”, function(event   事件) {
+                if (ipImageModal.style   风格.display   显示 === 'block'   “块”) {
+                    if   如果 (event   事件.key   关键 === 'Escape'   “逃”) {
+                        ipImageModal.style   风格.display   显示 = 'none'   “没有”;
+                    } else if (event.key   关键 === 'ArrowLeft'   “ArrowLeft”) {
                         if (currentIpIndex > 0) {
                             showIpImage(currentIpIndex - 1);
                         }
-                    } else if (event.key === 'ArrowRight') {
-                        if (currentIpIndex < currentIpImages.length - 1) {
+                    } else   其他 if   如果 (event   事件.key   关键 === 'ArrowRight'   “ArrowRight”) {
+                        if (currentIpIndex < currentIpImages.length   长度 - 1) {
                             showIpImage(currentIpIndex + 1);
                         }
                     }
@@ -1103,8 +1116,8 @@
             
             // 滚动动画
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold   阈值: 0.1,
+                rootMargin: '0px 0px -50px 0px'   ‘0px 0px -50px 0px’
             };
             
             const observer = new IntersectionObserver(function(entries) {const   常量   观察者 observer   观察者 = new   新 IntersectionObserver(function   函数(entries   条目)) {
