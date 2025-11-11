@@ -216,25 +216,6 @@
             right: 20px;
         }
         
-        /* 折叠面板样式 - 默认展开 */
-        .collapse-content {
-            max-height: 500px;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .collapse-content.closed {
-            max-height: 0;
-        }
-        
-        .collapse-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .collapse-icon.rotate {
-            transform: rotate(180deg);
-        }
-        
         /* 政策详情样式 */
         .policy-detail {
             display: none;
@@ -242,6 +223,12 @@
         
         .policy-detail.active {
             display: block;
+        }
+        
+        /* 折叠面板样式 */
+        .collapse-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
     </style>
 </head>
@@ -456,19 +443,19 @@
                 
                 <!-- 政策详情 -->
                 <div id="policy-details" class="mt-6">
-                    <div id="rural-revitalization" class="policy-detail active">
+                    <div id="rural-revitalization" class="policy-detail active p-4 bg-blue-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">乡村振兴政策详情</h4>
                         <p>乡村振兴战略是习近平同志2017年10月18日在党的十九大报告中提出的战略。十九大报告指出，农业农村农民问题是关系国计民生的根本性问题，必须始终把解决好"三农"问题作为全党工作的重中之重，实施乡村振兴战略。</p>
                     </div>
-                    <div id="soviet-revitalization" class="policy-detail">
+                    <div id="soviet-revitalization" class="policy-detail p-4 bg-green-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">苏区振兴政策详情</h4>
                         <p>苏区振兴政策旨在支持原中央苏区经济社会发展，促进革命老区振兴发展。梅州作为原中央苏区的重要组成部分，享受国家特殊政策支持，推动基础设施建设、产业发展和民生改善。</p>
                     </div>
-                    <div id="hundred-thousand-project" class="policy-detail">
+                    <div id="hundred-thousand-project" class="policy-detail p-4 bg-yellow-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">百千万工程详情</h4>
                         <p>百千万工程是广东省推动高质量发展的重要举措，旨在培育百家龙头企业、千家专精特新企业、万家高新技术企业，构建现代化产业体系，推动经济高质量发展。</p>
                     </div>
-                    <div id="green-meizhou" class="policy-detail">
+                    <div id="green-meizhou" class="policy-detail p-4 bg-purple-50 rounded-lg">
                         <h4 class="font-bold text-lg mb-2">绿美梅州详情</h4>
                         <p>绿美梅州是梅州市生态文明建设的重要举措，通过实施森林质量精准提升、城乡一体绿美提升、绿美保护地提升、绿色通道品质提升、古树名木保护提升、全民爱绿植绿护绿等六大行动，建设人与自然和谐共生的美丽梅州。</p>
                     </div>
@@ -515,10 +502,10 @@
             <!-- 图片展示 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/park-1.jpg" alt="鸳鸯寨云海" class="w-full h-64 object-cover rounded-lg">
+                    <img src="images/park-1.jpg" alt="鸳鸯寨云海" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/park-2.jpg" alt="鸳鸯寨夕阳" class="w-full h-64 object-cover rounded-lg">
+                    <img src="images/park-2.jpg" alt="鸳鸯寨夕阳" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
             </div>
             
@@ -527,7 +514,7 @@
                 <div class="border-b">
                     <button class="flex justify-between items-center w-full p-4 text-left font-semibold text-lg bg-blue-50 collapse-btn" data-target="park-guide">
                         <span>实用游玩攻略</span>
-                        <svg class="w-5 h-5 collapse-icon rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 collapse-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -578,7 +565,7 @@
                         <div class="border-b">
                             <button class="flex justify-between items-center w-full p-4 text-left font-semibold text-lg bg-amber-50 collapse-btn" data-target="ginger-process">
                                 <span>传统制作流程</span>
-                                <svg class="w-5 h-5 collapse-icon rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 collapse-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
@@ -610,14 +597,14 @@
                 
                 <div class="fade-in-up">
                     <div class="img-hover-zoom">
-                        <img src="images/ginger-1.jpg" alt="黄金姜糖" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
+                        <img src="images/ginger-1.jpg" alt="黄金姜糖" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md gallery-image">
                     </div>
                     <div class="grid grid-cols-2 gap-4 mt-4">
                         <div class="img-hover-zoom">
-                            <img src="images/ginger-2.jpg" alt="姜糖制作" class="w-full h-32 object-cover rounded-lg shadow">
+                            <img src="images/ginger-2.jpg" alt="姜糖制作" class="w-full h-32 object-cover rounded-lg shadow gallery-image">
                         </div>
                         <div class="img-hover-zoom">
-                            <img src="images/ginger-3.jpg" alt="姜糖包装" class="w-full h-32 object-cover rounded-lg shadow">
+                            <img src="images/ginger-3.jpg" alt="姜糖包装" class="w-full h-32 object-cover rounded-lg shadow gallery-image">
                         </div>
                     </div>
                 </div>
@@ -763,27 +750,27 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <!-- 图片1 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-1.jpg" alt="三下乡活动" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-1.jpg" alt="三下乡活动" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <!-- 图片2 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-2.jpg" alt="团队合影" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-2.jpg" alt="团队合影" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <!-- 图片3 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-3.jpg" alt="实地调研" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-3.jpg" alt="实地调研" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <!-- 图片4 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-4.jpg" alt="姜糖厂参观" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-4.jpg" alt="姜糖厂参观" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <!-- 图片5 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-5.jpg" alt="鸳鸯寨考察" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-5.jpg" alt="鸳鸯寨考察" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
                 <!-- 图片6 -->
                 <div class="img-hover-zoom fade-in-up">
-                    <img src="images/gallery-6.jpg" alt="成果总结" class="w-full h-64 object-cover rounded-lg gallery-img">
+                    <img src="images/gallery-6.jpg" alt="成果总结" class="w-full h-64 object-cover rounded-lg gallery-image">
                 </div>
             </div>
             
@@ -809,11 +796,11 @@
             </div>
             
             <div class="ip-gallery">
-                <img src="images/nuannuan-1.jpg" alt="暖暖形象1" data-index="0" data-ip="nuannuan" class="ip-img">
-                <img src="images/nuannuan-2.jpg" alt="暖暖形象2" data-index="1" data-ip="nuannuan" class="ip-img">
-                <img src="images/nuannuan-3.jpg" alt="暖暖形象3" data-index="2" data-ip="nuannuan" class="ip-img">
-                <img src="images/nuannuan-4.jpg" alt="暖暖形象4" data-index="3" data-ip="nuannuan" class="ip-img">
-                <img src="images/nuannuan-5.jpg" alt="暖暖形象5" data-index="4" data-ip="nuannuan" class="ip-img">
+                <img src="images/nuannuan-1.jpg" alt="暖暖形象1" data-index="0" data-ip="nuannuan" class="ip-image">
+                <img src="images/nuannuan-2.jpg" alt="暖暖形象2" data-index="1" data-ip="nuannuan" class="ip-image">
+                <img src="images/nuannuan-3.jpg" alt="暖暖形象3" data-index="2" data-ip="nuannuan" class="ip-image">
+                <img src="images/nuannuan-4.jpg" alt="暖暖形象4" data-index="3" data-ip="nuannuan" class="ip-image">
+                <img src="images/nuannuan-5.jpg" alt="暖暖形象5" data-index="4" data-ip="nuannuan" class="ip-image">
             </div>
         </div>
     </div>
@@ -829,8 +816,8 @@
             </div>
             
             <div class="ip-gallery">
-                <img src="images/jiangjiang-1.jpg" alt="姜姜形象1" data-index="0" data-ip="jiangjiang" class="ip-img">
-                <img src="images/jiangjiang-2.jpg" alt="姜姜形象2" data-index="1" data-ip="jiangjiang" class="ip-img">
+                <img src="images/jiangjiang-1.jpg" alt="姜姜形象1" data-index="0" data-ip="jiangjiang" class="ip-image">
+                <img src="images/jiangjiang-2.jpg" alt="姜姜形象2" data-index="1" data-ip="jiangjiang" class="ip-image">
             </div>
         </div>
     </div>
@@ -850,7 +837,7 @@
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <h3 class="text-xl font-bold mb-4">华农数信党务三下乡突击队</h3>
+                <h3 class="text-xl font-bold mb-4">华农数信党务三下乡突击队成果展示</h3>
                 <p class="text-gray-400 mb-4">探索山水秘境，传承非遗文化，助力乡村振兴</p>
                 <div class="flex justify-center space-x-6 mb-4">
                     <a href="https://www.meizhou.gov.cn/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
@@ -868,6 +855,8 @@
     <script>
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，开始初始化JavaScript功能');
+            
             // 导航栏滚动效果
             const navbar = document.getElementById('navbar');
             const navItems = document.querySelectorAll('.nav-item');
@@ -906,9 +895,11 @@
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
             
             // 视频播放控制
             const playVideoBtn = document.getElementById('playVideoBtn');
@@ -917,17 +908,22 @@
             const closeVideoBtn = document.getElementById('closeVideoBtn');
             const mainVideo = document.getElementById('mainVideo');
             
-            playVideoBtn.addEventListener('click', function() {
-                videoModal.classList.remove('hidden');
-                modalVideo.play();
-                mainVideo.pause();
-            });
+            if (playVideoBtn && videoModal) {
+                playVideoBtn.addEventListener('click', function() {
+                    console.log('点击播放视频按钮');
+                    videoModal.classList.remove('hidden');
+                    if (modalVideo) modalVideo.play();
+                    if (mainVideo) mainVideo.pause();
+                });
+            }
             
-            closeVideoBtn.addEventListener('click', function() {
-                videoModal.classList.add('hidden');
-                modalVideo.pause();
-                mainVideo.play();
-            });
+            if (closeVideoBtn && videoModal) {
+                closeVideoBtn.addEventListener('click', function() {
+                    videoModal.classList.add('hidden');
+                    if (modalVideo) modalVideo.pause();
+                    if (mainVideo) mainVideo.play();
+                });
+            }
             
             // 折叠面板功能 - 默认展开
             const collapseButtons = document.querySelectorAll('.collapse-btn');
@@ -938,17 +934,44 @@
                     const content = document.getElementById(targetId);
                     const icon = this.querySelector('.collapse-icon');
                     
-                    content.classList.toggle('closed');
-                    icon.classList.toggle('rotate');
+                    if (content && icon) {
+                        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                            content.style.maxHeight = '0px';
+                            icon.classList.remove('rotate-180');
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            icon.classList.add('rotate-180');
+                        }
+                    }
                 });
+                
+                // 默认展开所有折叠面板
+                const targetId = button.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = button.querySelector('.collapse-icon');
+                
+                if (content && icon) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.add('rotate-180');
+                }
             });
             
             // 政策呼应功能 - 默认展开乡村振兴
             const policyItems = document.querySelectorAll('.policy-item');
             const policyDetails = document.querySelectorAll('.policy-detail');
             
+            // 默认显示乡村振兴详情
+            policyDetails.forEach(detail => {
+                if (detail.id === 'rural-revitalization') {
+                    detail.classList.add('active');
+                } else {
+                    detail.classList.remove('active');
+                }
+            });
+            
             policyItems.forEach(item => {
                 item.addEventListener('click', function() {
+                    console.log('点击政策按钮:', this.getAttribute('data-target'));
                     const targetId = this.getAttribute('data-target');
                     
                     // 移除所有激活状态
@@ -965,7 +988,7 @@
             });
             
             // 图片模态框
-            const galleryImages = document.querySelectorAll('.gallery-img');
+            const galleryImages = document.querySelectorAll('.gallery-image');
             const imageModal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const imageCaption = document.getElementById('imageCaption');
@@ -973,15 +996,18 @@
             
             galleryImages.forEach(img => {
                 img.addEventListener('click', function() {
-                    modalImage.src = this.src;
-                    imageCaption.textContent = this.alt;
-                    imageModal.classList.remove('hidden');
+                    console.log('点击图片:', this.src);
+                    if (modalImage) modalImage.src = this.src;
+                    if (imageCaption) imageCaption.textContent = this.alt;
+                    if (imageModal) imageModal.classList.remove('hidden');
                 });
             });
             
-            closeImageBtn.addEventListener('click', function() {
-                imageModal.classList.add('hidden');
-            });
+            if (closeImageBtn && imageModal) {
+                closeImageBtn.addEventListener('click', function() {
+                    imageModal.classList.add('hidden');
+                });
+            }
             
             // 原创IP模态框功能
             const showNuannuanBtn = document.getElementById('show-nuannuan');
@@ -991,21 +1017,31 @@
             const closeNuannuanBtn = document.getElementById('close-nuannuan');
             const closeJiangjiangBtn = document.getElementById('close-jiangjiang');
             
-            showNuannuanBtn.addEventListener('click', function() {
-                nuannuanModal.style.display = 'block';
-            });
+            if (showNuannuanBtn && nuannuanModal) {
+                showNuannuanBtn.addEventListener('click', function() {
+                    console.log('点击暖暖按钮');
+                    nuannuanModal.style.display = 'block';
+                });
+            }
             
-            showJiangjiangBtn.addEventListener('click', function() {
-                jiangjiangModal.style.display = 'block';
-            });
+            if (showJiangjiangBtn && jiangjiangModal) {
+                showJiangjiangBtn.addEventListener('click', function() {
+                    console.log('点击姜姜按钮');
+                    jiangjiangModal.style.display = 'block';
+                });
+            }
             
-            closeNuannuanBtn.addEventListener('click', function() {
-                nuannuanModal.style.display = 'none';
-            });
+            if (closeNuannuanBtn && nuannuanModal) {
+                closeNuannuanBtn.addEventListener('click', function() {
+                    nuannuanModal.style.display = 'none';
+                });
+            }
             
-            closeJiangjiangBtn.addEventListener('click', function() {
-                jiangjiangModal.style.display = 'none';
-            });
+            if (closeJiangjiangBtn && jiangjiangModal) {
+                closeJiangjiangBtn.addEventListener('click', function() {
+                    jiangjiangModal.style.display = 'none';
+                });
+            }
             
             // 点击模态框外部关闭
             window.addEventListener('click', function(event) {
@@ -1017,6 +1053,11 @@
                 }
                 if (event.target === imageModal) {
                     imageModal.classList.add('hidden');
+                }
+                if (event.target === videoModal) {
+                    videoModal.classList.add('hidden');
+                    if (modalVideo) modalVideo.pause();
+                    if (mainVideo) mainVideo.play();
                 }
             });
             
@@ -1033,7 +1074,8 @@
             let currentIpName = '';
             
             // 为所有IP图片添加点击事件
-            document.querySelectorAll('.ip-img').forEach(img => {
+            const ipImages = document.querySelectorAll('.ip-image');
+            ipImages.forEach(img => {
                 img.addEventListener('click', function() {
                     const ipName = this.getAttribute('data-ip');
                     const index = parseInt(this.getAttribute('data-index'));
@@ -1048,7 +1090,7 @@
                 
                 // 获取对应IP的所有图片
                 const ipModal = document.getElementById(`${ipName}-modal`);
-                currentIpImages = Array.from(ipModal.querySelectorAll('.ip-img'));
+                currentIpImages = Array.from(ipModal.querySelectorAll('.ip-image'));
                 
                 // 显示当前图片
                 showIpImage(index);
@@ -1064,36 +1106,46 @@
                 currentIpIndex = index;
                 
                 // 更新导航按钮状态
-                ipImagePrev.style.display = index === 0 ? 'none' : 'flex';
-                ipImageNext.style.display = index === currentIpImages.length - 1 ? 'none' : 'flex';
+                if (ipImagePrev) {
+                    ipImagePrev.style.display = index === 0 ? 'none' : 'flex';
+                }
+                if (ipImageNext) {
+                    ipImageNext.style.display = index === currentIpImages.length - 1 ? 'none' : 'flex';
+                }
             }
             
             // 关闭IP图片模态框
-            ipImageClose.addEventListener('click', function() {
-                ipImageModal.style.display = 'none';
-            });
+            if (ipImageClose && ipImageModal) {
+                ipImageClose.addEventListener('click', function() {
+                    ipImageModal.style.display = 'none';
+                });
+            }
             
             // 上一张图片
-            ipImagePrev.addEventListener('click', function() {
-                if   如果 (currentIpIndex > 0) {
-                    showIpImage(currentIpIndex - 1);
-                }
-            });
+            if (ipImagePrev) {
+                ipImagePrev.addEventListener('click', function() {
+                    if (currentIpIndex > 0) {
+                        showIpImage(currentIpIndex - 1);
+                    }
+                });
+            }
             
             // 下一张图片
-            ipImageNext.addEventListener('click', function() {
-                if (currentIpIndex < currentIpImages.length - 1) {
-                    showIpImage(currentIpIndex + 1);
-                }
-            });
+            if (ipImageNext) {
+                ipImageNext.addEventListener('click', function() {
+                    if (currentIpIndex < currentIpImages.length - 1) {
+                        showIpImage(currentIpIndex + 1);
+                    }
+                });
+            }
             
             // 键盘导航
             document.addEventListener('keydown', function(event) {
-                if (ipImageModal.style.display === 'block') {
-                    if (event.key === 'Escape') {
-                        ipImageModal.style.display = 'none';
-                    } else if (event.key === 'ArrowLeft') {
-                        if (currentIpIndex > 0) {
+                if (ipImageModal.style.display === 'block') {如果(ipImageModal.style。显示=== 'block'   “块”) {
+                    if (event.key === 'Escape') {如果事件。键=== 'Escape'   “逃”) {
+                        ipImageModal.style.display = 'none';ipImageModal.style   风格.display   显示 = 'none'   “没有”；
+                    } else if (event.key === 'ArrowLeft') {} else   其他 if   如果(事件。key === 'ArrowLeft'   “ArrowLeft”) {
+                        if (currentIpIndex > 0) {   if   如果 (currentIpIndex >) {
                             showIpImage(currentIpIndex - 1);showIpImage(currentIpIndex - 1)；
                         }
                     } else if (event.key === 'ArrowRight') {} else   其他 if   如果(事件。key === 'ArrowRight'   “ArrowRight”) {
@@ -1125,7 +1177,9 @@
             
             // 初始化
             updateActiveNav();
-            mainVideo.play();
+            if (mainVideo) mainVideo.play();
+            
+            console.log('JavaScript功能初始化完成');
         });
     </script>   > < /脚本
 </body>   身体< / >
